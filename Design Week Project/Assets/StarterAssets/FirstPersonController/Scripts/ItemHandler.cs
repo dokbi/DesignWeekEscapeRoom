@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemHandler : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    //private  currentItem;
+    private IUsable currentItem;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -20,9 +20,9 @@ public class ItemHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (_input.use && (currentItem != null))
-        //{
-        //    currentItem.
-        //}
+        if (_input.use && (currentItem != null))
+        {
+            currentItem.Use();
+        }
     }
 }
