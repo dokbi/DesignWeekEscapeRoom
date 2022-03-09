@@ -58,14 +58,16 @@ public class SizeControl : MonoBehaviour
         {
             case StarterAssetsInputs.Scale.ScaleUp:
                 targetSizeIndex++;
-                TargetSize = Sizes[targetSizeIndex];
+                
                 targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
+                TargetSize = Sizes[targetSizeIndex];
                 _input.scale = StarterAssetsInputs.Scale.NOP;
                 break;
             case StarterAssetsInputs.Scale.ScaleDown:
                 targetSizeIndex--;
-                TargetSize = Sizes[targetSizeIndex];
+                
                 targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
+                TargetSize = Sizes[targetSizeIndex];
                 _input.scale = StarterAssetsInputs.Scale.NOP;
                 break;
             case StarterAssetsInputs.Scale.NOP:
