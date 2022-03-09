@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool use;
 		public enum Scale
 		{
 			NOP,
@@ -62,6 +63,11 @@ namespace StarterAssets
 		public void OnGrow(InputValue value)
 		{
 			scale = Scale.ScaleUp;
+		}
+
+		public void OnUse(InputValue value)
+		{
+			use = value.isPressed;
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
