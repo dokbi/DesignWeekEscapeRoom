@@ -6,9 +6,11 @@ using UnityEngine;
 public class SizeControl : MonoBehaviour
 {
     public float changeSpeed;
+    public float maximumAllowedScale = 2;
     public PlayerSizeData minSize;
     public PlayerSizeData nomSize;
     public PlayerSizeData maxSize;
+    public PlayerSizeData TargetSize;
     public CinemachineVirtualCamera _cameraControl;
 
     private StarterAssetsInputs _input;
@@ -56,36 +58,49 @@ public class SizeControl : MonoBehaviour
         {
             case StarterAssetsInputs.Scale.ScaleUp:
                 targetSizeIndex++;
+                TargetSize = Sizes[targetSizeIndex];
+                targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
                 _input.scale = StarterAssetsInputs.Scale.NOP;
                 break;
             case StarterAssetsInputs.Scale.ScaleDown:
                 targetSizeIndex--;
+                TargetSize = Sizes[targetSizeIndex];
+                targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
                 _input.scale = StarterAssetsInputs.Scale.NOP;
                 break;
             case StarterAssetsInputs.Scale.NOP:
                 break;
         }
-        targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
         ChangeSize();
     }
 
     void ChangeSize()
     {
-        if (currentScale != Sizes[targetSizeIndex].scale)
+        if (currentScale != TargetSize.scale)
         {
-            currentScale = Mathf.Lerp(currentScale, Sizes[targetSizeIndex].scale, changeSpeed * Time.deltaTime);
-            transform.localScale = Vector3.one * currentScale;
+            currentScale = Mathf.Lerp(currentScale, TargetSize.scale, changeSpeed * Time.deltaTime);
+            transform.localScale = Vector3.one * nomSize.scale * currentScale;
 
-            _cameraControl.m_Lens.FieldOfView = Mathf.Lerp(_cameraControl.m_Lens.FieldOfView, Sizes[targetSizeIndex].FOV, changeSpeed * Time.deltaTime);
+            _cameraControl.m_Lens.FieldOfView = Mathf.Lerp(_cameraControl.m_Lens.FieldOfView, TargetSize.FOV, changeSpeed * Time.deltaTime);
 
-            _controller.MoveSpeed = Mathf.Lerp(_controller.MoveSpeed, Sizes[targetSizeIndex].speed, changeSpeed * Time.deltaTime);
-            _controller.SprintSpeed = Mathf.Lerp(_controller.SprintSpeed, Sizes[targetSizeIndex].sprintSpeed, changeSpeed * Time.deltaTime);
-            _controller.JumpHeight = Mathf.Lerp(_controller.JumpHeight, Sizes[targetSizeIndex].jumpHeight, changeSpeed * Time.deltaTime);
-            _controller.GroundedOffset = Mathf.Lerp(_controller.GroundedOffset, Sizes[targetSizeIndex].groundedOffSet, changeSpeed * Time.deltaTime);
-            _controller.GroundedRadius = Mathf.Lerp(_controller.GroundedRadius, Sizes[targetSizeIndex].groundedRadius, changeSpeed * Time.deltaTime);
+            _controller.MoveSpeed = Mathf.Lerp(_controller.MoveSpeed, TargetSize.speed, changeSpeed * Time.deltaTime);
+            _controller.SprintSpeed = Mathf.Lerp(_controller.SprintSpeed, TargetSize.sprintSpeed, changeSpeed * Time.deltaTime);
+            _controller.JumpHeight = Mathf.Lerp(_controller.JumpHeight, TargetSize.jumpHeight, changeSpeed * Time.deltaTime);
+            _controller.GroundedOffset = Mathf.Lerp(_controller.GroundedOffset, TargetSize.groundedOffSet, changeSpeed * Time.deltaTime);
+            _controller.GroundedRadius = Mathf.Lerp(_controller.GroundedRadius, TargetSize.groundedRadius, changeSpeed * Time.deltaTime);
 
-            _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, Sizes[targetSizeIndex].slopeLimit, changeSpeed * Time.deltaTime);
-            _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset,Sizes[targetSizeIndex].stepOffset, changeSpeed* Time.deltaTime);
+            _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, TargetSize.slopeLimit, changeSpeed * Time.deltaTime);
+            _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset, TargetSize.stepOffset, changeSpeed* Time.deltaTime);
         }
+    }
+
+    public bool SetTargetSize(PlayerSizeData _targetSize)
+    {
+        if (_targetSize.scale <= maximumAllowedScale)
+        {
+            TargetSize = _targetSize;
+            return true;
+        }
+        return false;
     }
 }

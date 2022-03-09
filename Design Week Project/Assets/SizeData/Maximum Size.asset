@@ -15,12 +15,9 @@ MonoBehaviour:
   scale: 2
   FOV: 30
   speed: 6
-  sprintSpeed: 16
+  sprintSpeed: 8
   jumpHeight: 1.6
   groundedOffSet: -0.28
   groundedRadius: 1
-  radius: 1
-  height: 4
   slopeLimit: 60
   stepOffset: 0.5
-  center: {x: 0, y: 2, z: 0}
