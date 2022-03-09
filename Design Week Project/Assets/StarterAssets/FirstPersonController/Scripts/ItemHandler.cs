@@ -8,7 +8,7 @@ public class ItemHandler : MonoBehaviour
 {
     public Transform itemAnchor;
     public float itemTransformSpeed = 5f;
-
+    public float grabRange = 10f;
 
     private StarterAssetsInputs _input;
     private IUsable currentUsable;
@@ -30,7 +30,7 @@ public class ItemHandler : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Physics.Raycast(ray, out hit, 100f);
+        Physics.Raycast(ray, out hit, grabRange);
         //Debug.Log(hit.collider.gameObject);
         //Debug.Log(hit.collider.gameObject.GetComponent<IUsable>() != null);
         if (hit.collider != null)
