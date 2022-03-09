@@ -589,8 +589,13 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
+<<<<<<< Updated upstream
+  scriptingDefineSymbols: {}
+=======
   scriptingDefineSymbols:
+    1: STARTER_ASSETS_PACKAGES_CHECKED
     13: STARTER_ASSETS_PACKAGES_CHECKED
+>>>>>>> Stashed changes
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
