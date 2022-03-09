@@ -14,7 +14,7 @@ public class SizeControl : MonoBehaviour
     private StarterAssetsInputs _input;
     private FirstPersonController _controller;
     private CharacterController _controllerActual;
-    private PlayerSizeData[] Sizes = new PlayerSizeData[3];
+    private PlayerSizeData[] Sizes;
     private float currentScale;
     private int targetSizeIndex;
 
@@ -24,6 +24,7 @@ public class SizeControl : MonoBehaviour
         _input = GetComponent<StarterAssetsInputs>();
         _controller = GetComponent<FirstPersonController>();
         _controllerActual = GetComponent<CharacterController>();
+        Sizes = new PlayerSizeData[3];
     }
 
     void Start()
@@ -44,9 +45,6 @@ public class SizeControl : MonoBehaviour
 
         _controllerActual.slopeLimit = Sizes[targetSizeIndex].slopeLimit;
         _controllerActual.stepOffset = Sizes[targetSizeIndex].stepOffset;
-        _controllerActual.radius = Sizes[targetSizeIndex].radius;
-        _controllerActual.height = Sizes[targetSizeIndex].height;
-        _controllerActual.center = Sizes[targetSizeIndex].center;
 
         
     }
@@ -88,9 +86,6 @@ public class SizeControl : MonoBehaviour
 
             _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, Sizes[targetSizeIndex].slopeLimit, changeSpeed * Time.deltaTime);
             _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset,Sizes[targetSizeIndex].stepOffset, changeSpeed* Time.deltaTime);
-            //_controllerActual.radius = Mathf.Lerp(_controllerActual.radius, Sizes[targetSizeIndex].radius, changeSpeed* Time.deltaTime);
-            //_controllerActual.height = Mathf.Lerp(_controllerActual.height, Sizes[targetSizeIndex].height, changeSpeed* Time.deltaTime);
-            //_controllerActual.center = Vector3.Lerp(_controllerActual.center, Sizes[targetSizeIndex].center, changeSpeed* Time.deltaTime);
         }
     }
 }

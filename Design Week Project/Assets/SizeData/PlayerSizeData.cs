@@ -16,9 +16,6 @@ public class PlayerSizeData : ScriptableObject
     public float groundedOffSet;
     public float groundedRadius;
     [Header("Character Controller Parameter")]
-    public float radius;
-    public float height;
     public float slopeLimit;
     public float stepOffset;
-    public Vector3 center; 
 }
