@@ -5,28 +5,19 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SizeControl : MonoBehaviour
 {
+    public float changeSpeed;
+    public PlayerSizeData minSize;
+    public PlayerSizeData nomSize;
+    public PlayerSizeData maxSize;
     public CinemachineVirtualCamera _cameraControl;
+
     private StarterAssetsInputs _input;
     private FirstPersonController _controller;
     private CharacterController _controllerActual;
-
-    public float maxFOV = 90f;
-    public float minFOV = 40f;
-    public float nominalScale = 1f;
-    public float minimalScale = 0.2f;
-    public float jumpHeightScaleModifier = 1f;
-    public float slopeLimitScaleModifier = 2f;
-
-    private float FOVScaleFactor;
-    private float FOVScaleOffset;
+    private PlayerSizeData[] Sizes = new PlayerSizeData[3];
     private float currentScale;
-    private float nominalSpeed;
-    private float nominalJumpHeight;
-    private float nominalSlopeLimit;
-    private float nominalStepOffset;
-    private float nominalRadius;
-    private float nominalHeight;
-    private Vector3 nominalCenter;
+    private int targetSizeIndex;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,35 +28,69 @@ public class SizeControl : MonoBehaviour
 
     void Start()
     {
-        currentScale = nominalScale;
-        FOVScaleFactor = (maxFOV - minFOV) / (minimalScale - nominalScale);
-        FOVScaleOffset = (maxFOV * nominalScale - minFOV * minimalScale) / (nominalScale - minimalScale);
-        nominalSpeed = _controller.MoveSpeed;
-        nominalJumpHeight = _controller.JumpHeight;
-        nominalSlopeLimit = _controllerActual.slopeLimit;
-        nominalStepOffset = _controllerActual.stepOffset;
-        nominalRadius = _controllerActual.radius;
-        nominalHeight = _controllerActual.height;
-        nominalCenter = _controllerActual.center;
+        Sizes[0] = minSize;
+        Sizes[1] = nomSize;
+        Sizes[2] = maxSize;
+        targetSizeIndex = 1;
+        currentScale = Sizes[targetSizeIndex].scale;
+
+        _cameraControl.m_Lens.FieldOfView = Sizes[targetSizeIndex].FOV;
+
+        _controller.MoveSpeed = Sizes[targetSizeIndex].speed;
+        _controller.SprintSpeed = Sizes[targetSizeIndex].sprintSpeed;
+        _controller.JumpHeight = Sizes[targetSizeIndex].jumpHeight;
+        _controller.GroundedOffset = Sizes[targetSizeIndex].groundedOffSet;
+        _controller.GroundedRadius = Sizes[targetSizeIndex].groundedRadius;
+
+        _controllerActual.slopeLimit = Sizes[targetSizeIndex].slopeLimit;
+        _controllerActual.stepOffset = Sizes[targetSizeIndex].stepOffset;
+        _controllerActual.radius = Sizes[targetSizeIndex].radius;
+        _controllerActual.height = Sizes[targetSizeIndex].height;
+        _controllerActual.center = Sizes[targetSizeIndex].center;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        _input.scale = Mathf.Clamp(_input.scale,0.2f,1f);
-        if (currentScale != _input.scale)
+        switch (_input.scale)
         {
-            currentScale = Mathf.Lerp(currentScale, _input.scale, 5f * Time.deltaTime);
-            transform.localScale = Vector3.one * currentScale;
-            _cameraControl.m_Lens.FieldOfView = FOVScaleOffset + currentScale * FOVScaleFactor;
-            _controller.MoveSpeed = nominalSpeed * currentScale;
-            _controller.JumpHeight = nominalJumpHeight * currentScale * jumpHeightScaleModifier;
-            _controllerActual.slopeLimit = nominalSlopeLimit * currentScale * slopeLimitScaleModifier;
-            _controllerActual.stepOffset = nominalStepOffset * currentScale;
-            _controllerActual.radius = nominalRadius * currentScale;
-            _controllerActual.height = nominalHeight * currentScale;
-            _controllerActual.center = nominalCenter * currentScale;
+            case StarterAssetsInputs.Scale.ScaleUp:
+                targetSizeIndex++;
+                _input.scale = StarterAssetsInputs.Scale.NOP;
+                break;
+            case StarterAssetsInputs.Scale.ScaleDown:
+                targetSizeIndex--;
+                _input.scale = StarterAssetsInputs.Scale.NOP;
+                break;
+            case StarterAssetsInputs.Scale.NOP:
+                break;
         }
+        targetSizeIndex = Mathf.Clamp(targetSizeIndex, 0, 2);
+        ChangeSize();
+    }
 
+    void ChangeSize()
+    {
+        if (currentScale != Sizes[targetSizeIndex].scale)
+        {
+            currentScale = Mathf.Lerp(currentScale, Sizes[targetSizeIndex].scale, changeSpeed * Time.deltaTime);
+            transform.localScale = Vector3.one * currentScale;
+
+            _cameraControl.m_Lens.FieldOfView = Mathf.Lerp(_cameraControl.m_Lens.FieldOfView, Sizes[targetSizeIndex].FOV, changeSpeed * Time.deltaTime);
+
+            _controller.MoveSpeed = Mathf.Lerp(_controller.MoveSpeed, Sizes[targetSizeIndex].speed, changeSpeed * Time.deltaTime);
+            _controller.SprintSpeed = Mathf.Lerp(_controller.SprintSpeed, Sizes[targetSizeIndex].sprintSpeed, changeSpeed * Time.deltaTime);
+            _controller.JumpHeight = Mathf.Lerp(_controller.JumpHeight, Sizes[targetSizeIndex].jumpHeight, changeSpeed * Time.deltaTime);
+            _controller.GroundedOffset = Mathf.Lerp(_controller.GroundedOffset, Sizes[targetSizeIndex].groundedOffSet, changeSpeed * Time.deltaTime);
+            _controller.GroundedRadius = Mathf.Lerp(_controller.GroundedRadius, Sizes[targetSizeIndex].groundedRadius, changeSpeed * Time.deltaTime);
+
+            _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, Sizes[targetSizeIndex].slopeLimit, changeSpeed * Time.deltaTime);
+            _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset,Sizes[targetSizeIndex].stepOffset, changeSpeed* Time.deltaTime);
+            //_controllerActual.radius = Mathf.Lerp(_controllerActual.radius, Sizes[targetSizeIndex].radius, changeSpeed* Time.deltaTime);
+            //_controllerActual.height = Mathf.Lerp(_controllerActual.height, Sizes[targetSizeIndex].height, changeSpeed* Time.deltaTime);
+            //_controllerActual.center = Vector3.Lerp(_controllerActual.center, Sizes[targetSizeIndex].center, changeSpeed* Time.deltaTime);
+        }
     }
 }

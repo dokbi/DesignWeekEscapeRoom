@@ -12,7 +12,14 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public float scale;
+		public enum Scale
+		{
+			NOP,
+			ScaleDown,
+			ScaleUp
+		}
+
+		public Scale scale = Scale.NOP;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,12 +56,12 @@ namespace StarterAssets
 
 		public void OnShrink(InputValue value)
 		{
-			scale /= 5;
+			scale = Scale.ScaleDown;
 		}
 
 		public void OnGrow(InputValue value)
 		{
-			scale *= 5;
+			scale = Scale.ScaleUp;
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...

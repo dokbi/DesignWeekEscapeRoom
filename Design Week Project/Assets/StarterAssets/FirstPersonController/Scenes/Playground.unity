@@ -140,13 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9da4a1d23cf4d418301314e168257d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeSpeed: 5
+  minSize: {fileID: 11400000, guid: 4885be0422da9b64f8461f42ffac0023, type: 2}
+  nomSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
+  maxSize: {fileID: 11400000, guid: 55da45fa8c478e44a83ab957e310a917, type: 2}
   _cameraControl: {fileID: 1167838872}
-  maxFOV: 80
-  minFOV: 40
-  nominalScale: 1
-  minimalScale: 0.2
-  jumpHeightScaleModifier: 1
-  slopeLimitScaleModifier: 2
 --- !u!1 &542508511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1081,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420857361349278248, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: scale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
