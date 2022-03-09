@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool use;
+		public bool pickup;
 		public enum Scale
 		{
 			NOP,
@@ -68,6 +69,11 @@ namespace StarterAssets
 		public void OnUse(InputValue value)
 		{
 			use = value.isPressed;
+		}
+
+		public void OnPickup(InputValue value)
+		{
+			pickup = value.isPressed;
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
