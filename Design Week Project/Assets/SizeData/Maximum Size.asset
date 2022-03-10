@@ -19,5 +19,5 @@ MonoBehaviour:
   jumpHeight: 1.6
   groundedOffSet: -0.28
   groundedRadius: 1
-  slopeLimit: 60
+  slopeLimit: 30
   stepOffset: 0.5

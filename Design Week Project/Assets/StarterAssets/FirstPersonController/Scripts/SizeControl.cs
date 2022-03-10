@@ -7,13 +7,14 @@ public class SizeControl : MonoBehaviour
 {
     public float changeSpeed;
     public float maximumAllowedScale = 3;
-    public PlayerSizeData nomSize;
-    public PlayerSizeData TargetSize;
+    public float currentScale;
+    public PlayerSizeData nomimalSize;
+    public PlayerSizeData targetSize;
     public CinemachineVirtualCamera _cameraControl;
 
     private FirstPersonController _controller;
     private CharacterController _controllerActual;
-    private float currentScale;
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -24,18 +25,18 @@ public class SizeControl : MonoBehaviour
 
     void Start()
     {
-        currentScale = nomSize.scale;
+        currentScale = nomimalSize.scale;
 
-        _cameraControl.m_Lens.FieldOfView = nomSize.FOV;
+        _cameraControl.m_Lens.FieldOfView = nomimalSize.FOV;
 
-        _controller.MoveSpeed = nomSize.speed;
-        _controller.SprintSpeed = nomSize.sprintSpeed;
-        _controller.JumpHeight = nomSize.jumpHeight;
-        _controller.GroundedOffset = nomSize.groundedOffSet;
-        _controller.GroundedRadius = nomSize.groundedRadius;
+        _controller.MoveSpeed = nomimalSize.speed;
+        _controller.SprintSpeed = nomimalSize.sprintSpeed;
+        _controller.JumpHeight = nomimalSize.jumpHeight;
+        _controller.GroundedOffset = nomimalSize.groundedOffSet;
+        _controller.GroundedRadius = nomimalSize.groundedRadius;
 
-        _controllerActual.slopeLimit = nomSize.slopeLimit;
-        _controllerActual.stepOffset = nomSize.stepOffset;
+        _controllerActual.slopeLimit = nomimalSize.slopeLimit;
+        _controllerActual.stepOffset = nomimalSize.stepOffset;
 
 
     }
@@ -43,7 +44,7 @@ public class SizeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentScale != TargetSize.scale)
+        if (currentScale != targetSize.scale)
         {
             ChangeSize();
         }
@@ -52,19 +53,19 @@ public class SizeControl : MonoBehaviour
     void ChangeSize()
     {
 
-        currentScale = Mathf.Lerp(currentScale, TargetSize.scale, changeSpeed * Time.deltaTime);
+        currentScale = Mathf.Lerp(currentScale, targetSize.scale, changeSpeed * Time.deltaTime);
         transform.localScale = Vector3.one  * currentScale;
 
-        _cameraControl.m_Lens.FieldOfView = Mathf.Lerp(_cameraControl.m_Lens.FieldOfView, TargetSize.FOV, changeSpeed * Time.deltaTime);
+        _cameraControl.m_Lens.FieldOfView = Mathf.Lerp(_cameraControl.m_Lens.FieldOfView, targetSize.FOV, changeSpeed * Time.deltaTime);
 
-        _controller.MoveSpeed = Mathf.Lerp(_controller.MoveSpeed, TargetSize.speed, changeSpeed * Time.deltaTime);
-        _controller.SprintSpeed = Mathf.Lerp(_controller.SprintSpeed, TargetSize.sprintSpeed, changeSpeed * Time.deltaTime);
-        _controller.JumpHeight = Mathf.Lerp(_controller.JumpHeight, TargetSize.jumpHeight, changeSpeed * Time.deltaTime);
-        _controller.GroundedOffset = Mathf.Lerp(_controller.GroundedOffset, TargetSize.groundedOffSet, changeSpeed * Time.deltaTime);
-        _controller.GroundedRadius = Mathf.Lerp(_controller.GroundedRadius, TargetSize.groundedRadius, changeSpeed * Time.deltaTime);
+        _controller.MoveSpeed = Mathf.Lerp(_controller.MoveSpeed, targetSize.speed, changeSpeed * Time.deltaTime);
+        _controller.SprintSpeed = Mathf.Lerp(_controller.SprintSpeed, targetSize.sprintSpeed, changeSpeed * Time.deltaTime);
+        _controller.JumpHeight = Mathf.Lerp(_controller.JumpHeight, targetSize.jumpHeight, changeSpeed * Time.deltaTime);
+        _controller.GroundedOffset = Mathf.Lerp(_controller.GroundedOffset, targetSize.groundedOffSet, changeSpeed * Time.deltaTime);
+        _controller.GroundedRadius = Mathf.Lerp(_controller.GroundedRadius, targetSize.groundedRadius, changeSpeed * Time.deltaTime);
 
-        _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, TargetSize.slopeLimit, changeSpeed * Time.deltaTime);
-        _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset, TargetSize.stepOffset, changeSpeed * Time.deltaTime);
+        _controllerActual.slopeLimit = Mathf.Lerp(_controllerActual.slopeLimit, targetSize.slopeLimit, changeSpeed * Time.deltaTime);
+        _controllerActual.stepOffset = Mathf.Lerp(_controllerActual.stepOffset, targetSize.stepOffset, changeSpeed * Time.deltaTime);
 
     }
 
@@ -72,7 +73,7 @@ public class SizeControl : MonoBehaviour
     {
         if (_targetSize.scale <= maximumAllowedScale)
         {
-            TargetSize = _targetSize;
+            targetSize = _targetSize;
             return true;
         }
         return false;
