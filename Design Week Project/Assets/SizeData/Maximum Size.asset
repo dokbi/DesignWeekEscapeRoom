@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d076e4b9e5d2b740a939d6b36eb3b8e, type: 3}
   m_Name: Maximum Size
   m_EditorClassIdentifier: 
-  scale: 3
+  scale: 4
   FOV: 30
   speed: 6
   sprintSpeed: 8
