@@ -7,19 +7,22 @@ using UnityEngine.InputSystem;
 public class ItemHandler : MonoBehaviour
 {
     public Transform itemAnchor;
-    public float itemTransformSpeed = 5f;
+    public float itemTransformSpeed = 10f;
     public float grabRange = 10f;
     public GameObject currentItem;
 
     private StarterAssetsInputs _input;
+    private SizeControl _sizeControl;
     private GameObject targetItem;
     private RaycastHit hit;
     private Ray ray;
+    private Vector3 itemNominalScale;
     
     // Start is called before the first frame update
     private void Awake()
     {
         _input = GetComponent<StarterAssetsInputs>();
+        _sizeControl = GetComponent<SizeControl>();
     }
     void Start()
     {
@@ -42,9 +45,14 @@ public class ItemHandler : MonoBehaviour
 
         if (currentItem != null)
         {
-            if (currentItem)
+            if (currentItem.transform.position != itemAnchor.position)
             {
                 currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, itemAnchor.position, itemTransformSpeed * Time.deltaTime);
+            }
+            Debug.Log(transform.localScale * (currentItem.transform.localScale.x));
+            if (currentItem.transform.localScale != itemNominalScale*_sizeControl.currentScale)
+            {
+                currentItem.transform.localScale = Vector3.Lerp(currentItem.transform.localScale, itemNominalScale * _sizeControl.currentScale, itemTransformSpeed * Time.deltaTime);
             }
         }
     }
@@ -76,15 +84,17 @@ public class ItemHandler : MonoBehaviour
         }
 
         currentItem = targetItem;
+        itemNominalScale = targetItem.transform.localScale;
         targetItem.GetComponent<Rigidbody>().isKinematic = true;
         targetItem = null;
     }
 
-    void Drop()
+    public void Drop()
     {
         if (currentItem != null)
         {
             currentItem.GetComponent<Rigidbody>().isKinematic = false;
+            currentItem.transform.localScale = itemNominalScale;
             currentItem = null;
         }
     }

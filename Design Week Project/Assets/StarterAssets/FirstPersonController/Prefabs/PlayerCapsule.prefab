@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1009907804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009907805}
+  m_Layer: 8
+  m_Name: Item Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1009907805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009907804}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 1.1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 4135013735270702856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4135013735270702863
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +56,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1009907805}
   m_Father: {fileID: 8997996947095583982}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,6 +172,8 @@ GameObject:
   - component: {fileID: 5420857361349278248}
   - component: {fileID: 8616685848737228376}
   - component: {fileID: 284450234}
+  - component: {fileID: 284450235}
+  - component: {fileID: 284450236}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -226,8 +259,8 @@ MonoBehaviour:
   pushLayers:
     serializedVersion: 2
     m_Bits: 0
-  canPush: 0
-  strength: 1.1
+  canPush: 1
+  strength: 0.5
 --- !u!114 &5420857361349278248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +277,15 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
-  use: 0
-  scale: 0
+  use:
+    m_PersistentCalls:
+      m_Calls: []
+  pickup:
+    m_PersistentCalls:
+      m_Calls: []
+  drop:
+    m_PersistentCalls:
+      m_Calls: []
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -360,9 +400,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSpeed: 5
-  maximumAllowedScale: 2
-  minSize: {fileID: 11400000, guid: 4885be0422da9b64f8461f42ffac0023, type: 2}
-  nomSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
-  maxSize: {fileID: 11400000, guid: 55da45fa8c478e44a83ab957e310a917, type: 2}
-  TargetSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
+  maximumAllowedScale: 3
+  currentScale: 0
+  nomimalSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
+  targetSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
   _cameraControl: {fileID: 0}
+--- !u!114 &284450235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54d813d408be66469361f9e7e28d4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAnchor: {fileID: 1009907805}
+  itemTransformSpeed: 10
+  grabRange: 5
+  currentItem: {fileID: 0}
+--- !u!114 &284450236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64cab3845f6b8549be55992f057d4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: KeyUI, Assembly-CSharp
+        m_MethodName: EnableKey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  UpdateCoin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CoinUI, Assembly-CSharp
+        m_MethodName: SetCoinCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
