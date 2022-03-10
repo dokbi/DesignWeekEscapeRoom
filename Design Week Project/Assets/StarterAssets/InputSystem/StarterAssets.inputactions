@@ -42,24 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shrink",
-                    "type": "Button",
-                    "id": "74655472-ee29-487f-9e77-519af896b697",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Grow",
-                    "type": "Button",
-                    "id": "f47462f3-64d4-4c75-a72e-e90fd2ea436a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Use",
                     "type": "Button",
                     "id": "d6d7c1b2-c2e4-425f-9574-b6ec4afe513d",
@@ -266,28 +248,6 @@
                 },
                 {
                     "name": "",
-                    "id": "166cba0e-c8c9-4d18-9482-a2d4f11ba123",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shrink",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8d724075-832c-4d6c-aea6-2fc65550699d",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grow",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "140f754a-f1c4-48d2-887c-c33f4239f9a6",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -311,10 +271,10 @@
                 {
                     "name": "",
                     "id": "27f2d273-ac3c-4fdd-a5e4-6c4f49b68864",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyboardMouse",
                     "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
