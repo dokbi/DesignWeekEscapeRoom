@@ -91,7 +91,6 @@ public class ItemHandler : MonoBehaviour
 
     void Drop()
     {
-        Debug.Log("aa");
         if (currentItem != null)
         {
             currentItem.GetComponent<Rigidbody>().isKinematic = false;
