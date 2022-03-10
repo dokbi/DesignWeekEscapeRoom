@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface IUsable
 {
-    public abstract void Use();
-
+    public abstract void Use(ItemHandler _owner);
 }

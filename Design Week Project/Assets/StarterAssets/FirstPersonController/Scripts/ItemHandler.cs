@@ -9,13 +9,13 @@ public class ItemHandler : MonoBehaviour
     public Transform itemAnchor;
     public float itemTransformSpeed = 5f;
     public float grabRange = 10f;
+    public GameObject currentItem;
 
     private StarterAssetsInputs _input;
-    private IUsable currentUsable;
-    private GameObject currentItem;
     private GameObject targetItem;
     private RaycastHit hit;
     private Ray ray;
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -23,7 +23,9 @@ public class ItemHandler : MonoBehaviour
     }
     void Start()
     {
-
+        _input.pickup.AddListener(PickUp);
+        _input.use.AddListener(UseItem);
+        _input.drop.AddListener(Drop);
     }
 
     // Update is called once per frame
@@ -36,38 +38,54 @@ public class ItemHandler : MonoBehaviour
         if (hit.collider != null)
         {
             targetItem = hit.collider.gameObject;
-            if (_input.pickup && targetItem.GetComponent<IUsable>() != null)
-            {
-                PickUp();
-                
-            }
         }
-        _input.pickup = false;
+
         if (currentItem != null)
         {
-            if (currentItem.transform != itemAnchor)
+            if (currentItem)
             {
                 currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, itemAnchor.position, itemTransformSpeed * Time.deltaTime);
-                //currentItem.transform.rotation = Quaternion.Lerp(currentItem.transform.rotation, itemAnchor.rotation, itemTransformSpeed * Time.deltaTime);
-                //maybe scale as well?
-            }
-
-
-            if (_input.use)
-            {
-                currentUsable = currentItem.GetComponent<IUsable>();
-                currentUsable.Use();
-                
             }
         }
-        _input.use = false;
+    }
+
+    void UseItem()
+    {
+        if (currentItem != null)
+        {
+            currentItem.GetComponent<IUsable>().Use(this);
+            //Drop();
+        }
     }
 
     void PickUp()
     {
+        if (targetItem == null)
+        {
+            return;
+        }
+
+        if (targetItem.GetComponent<IUsable>() == null)
+        {
+            return;
+        }
+
+        if (currentItem != null)
+        {
+            Drop();
+        }
+
         currentItem = targetItem;
+        targetItem.GetComponent<Rigidbody>().isKinematic = true;
         targetItem = null;
-        currentItem.transform.SetParent(gameObject.transform);
-        currentItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    void Drop()
+    {
+        if (currentItem != null)
+        {
+            currentItem.GetComponent<Rigidbody>().isKinematic = false;
+            currentItem = null;
+        }
     }
 }
