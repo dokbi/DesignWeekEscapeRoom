@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class AcidScript : MonoBehaviour, IUsable
 {
-
-    public bool throwAcid = false;
-    public GameObject acid;
-    public GameObject thrower;
-
-    void Update()
+    public float lauchForce;
+    private Rigidbody acidRb;
+    private void Awake()
     {
-        if (throwAcid == true)
-        {
-            throwAcid = false;
-            //Use();
-            throwAcid = false;
-        }
+        acidRb = GetComponent<Rigidbody>();
     }
-
 
     public void Use(ItemHandler _owner)
     {
-        Instantiate(acid, thrower.transform.position, thrower.transform.rotation);
+        Vector3 facing = _owner.transform.forward;
+        _owner.Drop();
+        acidRb.AddForce(facing * lauchForce,ForceMode.Impulse);
+        acidRb.AddTorque(Vector3.right * lauchForce, ForceMode.Impulse);
     }
 }

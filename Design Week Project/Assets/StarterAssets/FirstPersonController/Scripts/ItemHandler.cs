@@ -89,7 +89,7 @@ public class ItemHandler : MonoBehaviour
         targetItem = null;
     }
 
-    void Drop()
+    public void Drop()
     {
         if (currentItem != null)
         {
