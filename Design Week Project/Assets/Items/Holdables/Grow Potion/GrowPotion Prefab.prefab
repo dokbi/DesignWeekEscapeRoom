@@ -29,7 +29,15 @@ Transform:
   m_GameObject: {fileID: 3687281425616097176}
   m_LocalRotation: {x: 0, y: -0.9691042, z: 0, w: 0.24665195}
   m_LocalPosition: {x: 7.227934, y: 3.8, z: -2.2271175}
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Grow Potion/GrowPotion Prefab.prefab
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Grow Potion/GrowPotion Prefab.prefab
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Grow Potion/GrowPotion Prefab.prefab
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Grow Potion/GrowPotion Prefab.prefab
   m_Children:
   - {fileID: 3463336787903194234}
   m_Father: {fileID: 0}
@@ -88,9 +96,21 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Grow Potion/GrowPotion Prefab.prefab
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0.9, z: 0}
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6412e627e9ae92d43b875e1832d6cd81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeData: {fileID: 11400000, guid: 55da45fa8c478e44a83ab957e310a917, type: 2}
+  sizeControl: {fileID: 0}
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Grow Potion/GrowPotion Prefab.prefab
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Grow Potion/GrowPotion Prefab.prefab
+=======
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Grow Potion/GrowPotion Prefab.prefab
 --- !u!1 &5667235923815642945
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +150,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5667235923815642945}
-  m_Mesh: {fileID: -2432090755550338912, guid: 55ff898fd2d09fc43bf7cc2c70aa9b93, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 85e41495b0d01324880e9a2ef39264fe, type: 3}
 --- !u!23 &3018162754512107940
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d375d27cf00ba4b4e93900e8acfaed4a, type: 2}
+  - {fileID: 2100000, guid: ef9a5cfddd137164d855eedade87fee8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
