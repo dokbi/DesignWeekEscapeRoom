@@ -9298,32 +9298,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7149b2741cc22e0468ed3ac75f35c5ca, type: 3}
   m_PrefabInstance: {fileID: 1487210466}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1272285312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-  m_PrefabInstance: {fileID: 2143623550}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1272285319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_PrefabInstance: {fileID: 2143623550}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1272285320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272285312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d54d813d408be66469361f9e7e28d4ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemAnchor: {fileID: 1388016830}
-  itemTransformSpeed: 5
-  grabRange: 10
-  currentItem: {fileID: 0}
 --- !u!4 &1274004814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8f56d2e99ee242144b207cd87772e44c, type: 3}
@@ -9845,36 +9824,6 @@ PrefabInstance:
       objectReference: {fileID: 1017778225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
---- !u!1 &1388016829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1388016830}
-  m_Layer: 8
-  m_Name: ItemAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1388016830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388016829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 1.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1272285319}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1394074747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7149b2741cc22e0468ed3ac75f35c5ca, type: 3}
@@ -15997,10 +15946,6 @@ PrefabInstance:
       propertyPath: _cameraControl
       value: 
       objectReference: {fileID: 1856903290}
-    - target: {fileID: 284450234, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: maximumAllowedScale
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 284450236, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: UpdateKey.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -16009,14 +15954,6 @@ PrefabInstance:
       propertyPath: UpdateCoin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 440021452}
-    - target: {fileID: 284450236, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: UpdateKey.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableKey
-      objectReference: {fileID: 0}
-    - target: {fileID: 284450236, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: UpdateCoin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCoinCount
-      objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
