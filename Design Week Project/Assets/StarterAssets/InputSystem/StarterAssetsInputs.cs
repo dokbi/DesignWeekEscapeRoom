@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -12,15 +13,9 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public bool use;
-		public enum Scale
-		{
-			NOP,
-			ScaleDown,
-			ScaleUp
-		}
-
-		public Scale scale = Scale.NOP;
+		public UnityEvent use;
+		public UnityEvent pickup;
+		public UnityEvent drop;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,19 +50,19 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
-		public void OnShrink(InputValue value)
-		{
-			scale = Scale.ScaleDown;
-		}
-
-		public void OnGrow(InputValue value)
-		{
-			scale = Scale.ScaleUp;
-		}
-
 		public void OnUse(InputValue value)
 		{
-			use = value.isPressed;
+			use.Invoke();
+		}
+
+		public void OnPickup(InputValue value)
+		{
+			pickup.Invoke();
+		}
+
+		public void OnDrop(InputValue value)
+		{
+			drop.Invoke();
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
