@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d076e4b9e5d2b740a939d6b36eb3b8e, type: 3}
   m_Name: Nominal Size
   m_EditorClassIdentifier: 
-  scale: 1
+  scale: 1.5
   FOV: 40
   speed: 4
   sprintSpeed: 6
   jumpHeight: 1.2
   groundedOffSet: -0.14
   groundedRadius: 0.5
-  radius: 0.5
-  height: 2
   slopeLimit: 45
   stepOffset: 0.25
-  center: {x: 0, y: 1, z: 0}
