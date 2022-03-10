@@ -30,7 +30,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.8390697, z: -0, w: -0.54402393}
   m_LocalPosition: {x: -6.056139, y: 2.16, z: 5.9030113}
 <<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Shrink Potion/ShrinkPotion Prefab.prefab
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Shrink Potion/ShrinkPotion Prefab.prefab
   m_LocalScale: {x: 0.37985802, y: 0.37985802, z: 0.37985802}
+=======
+  m_LocalScale: {x: 1.1880959, y: 1.1880959, z: 1.1880959}
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Shrink Potion/ShrinkPotion Prefab.prefab
 =======
   m_LocalScale: {x: 1.1880959, y: 1.1880959, z: 1.1880959}
 >>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Shrink Potion/ShrinkPotion Prefab.prefab
@@ -103,6 +107,9 @@ BoxCollider:
   m_EditorClassIdentifier: 
   sizeData: {fileID: 11400000, guid: 4885be0422da9b64f8461f42ffac0023, type: 2}
   sizeControl: {fileID: 0}
+<<<<<<< HEAD:Design Week Project/Assets/Items/Holdables/Shrink Potion/ShrinkPotion Prefab.prefab
+>>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Shrink Potion/ShrinkPotion Prefab.prefab
+=======
 >>>>>>> parent of 2dd1c5a (Puzzle 2 Components):Design Week Project/Assets/Items/Holdable/Shrink Potion/ShrinkPotion Prefab.prefab
 --- !u!1 &7531500958331099848
 GameObject:
