@@ -16,7 +16,7 @@ namespace StarterAssets
 		public UnityEvent use;
 		public UnityEvent pickup;
 		public UnityEvent drop;
-
+		public UnityEvent interact;
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -63,6 +63,11 @@ namespace StarterAssets
 		public void OnDrop(InputValue value)
 		{
 			drop.Invoke();
+		}
+
+		public void OnInteract(InputValue value)
+		{
+			interact.Invoke();
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
