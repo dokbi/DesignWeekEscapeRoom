@@ -9,10 +9,12 @@ public class PotionScript : MonoBehaviour, IUsable
     
     public PlayerSizeData sizeData;
 
-    public SizeControl sizeControl;
+    private SizeControl sizeControl;
 
     public void Use()
     {
+        sizeControl = transform.parent.GetComponent<SizeControl>();
         sizeControl.SetTargetSize(sizeData);
+        Debug.Log("Drink Potion");
     }
 }
