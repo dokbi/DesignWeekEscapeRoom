@@ -9,14 +9,12 @@ public class ItemHandler : MonoBehaviour
     public Transform itemAnchor;
     public float itemTransformSpeed = 5f;
     public float grabRange = 10f;
+    public GameObject currentItem;
 
     private StarterAssetsInputs _input;
     private GameObject targetItem;
     private RaycastHit hit;
     private Ray ray;
-    private int nullItemIndex = 4396;
-    [SerializeField]
-    private int itemIndex;
     
     // Start is called before the first frame update
     private void Awake()
@@ -25,7 +23,6 @@ public class ItemHandler : MonoBehaviour
     }
     void Start()
     {
-        itemIndex = nullItemIndex;
         _input.pickup.AddListener(PickUp);
         _input.use.AddListener(UseItem);
         _input.drop.AddListener(Drop);
@@ -43,24 +40,21 @@ public class ItemHandler : MonoBehaviour
             targetItem = hit.collider.gameObject;
         }
 
-        if (transform.childCount >= itemIndex)
+        if (currentItem != null)
         {
-            if (transform.GetChild(itemIndex).transform != itemAnchor)
+            if (currentItem)
             {
-                transform.GetChild(itemIndex).transform.position = Vector3.Lerp(transform.GetChild(itemIndex).transform.position, itemAnchor.position, itemTransformSpeed * Time.deltaTime);
+                currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, itemAnchor.position, itemTransformSpeed * Time.deltaTime);
             }
-        }
-        else
-        {
-            itemIndex = nullItemIndex;
         }
     }
 
     void UseItem()
     {
-        if (transform.childCount >= itemIndex)
+        if (currentItem != null)
         {
-            transform.GetChild(itemIndex).GetComponent<IUsable>().Use();
+            currentItem.GetComponent<IUsable>().Use(this);
+            //Drop();
         }
     }
 
@@ -76,24 +70,22 @@ public class ItemHandler : MonoBehaviour
             return;
         }
 
-        if (itemIndex != nullItemIndex)
+        if (currentItem != null)
         {
             Drop();
         }
 
-        targetItem.transform.SetParent(gameObject.transform);
-        itemIndex = targetItem.transform.GetSiblingIndex();
+        currentItem = targetItem;
         targetItem.GetComponent<Rigidbody>().isKinematic = true;
         targetItem = null;
     }
 
     void Drop()
     {
-        if (transform.childCount >= itemIndex)
+        if (currentItem != null)
         {
-            transform.GetChild(itemIndex).GetComponent<Rigidbody>().isKinematic = false;
-            transform.GetChild(itemIndex).parent = null;
-            itemIndex = nullItemIndex;
+            currentItem.GetComponent<Rigidbody>().isKinematic = false;
+            currentItem = null;
         }
     }
 }
