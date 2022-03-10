@@ -17,16 +17,20 @@ public class PlayerLevelData : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.GetComponent<Key>()!=null)
-        //{
-        //    keys[other.gameObject.GetComponent<Key>().keyNumber] = true;
-        //    UpdateUI.Invoke();
-        //}
+        if (other.gameObject.GetComponent<Key>() != null)
+        {
+            keys[other.gameObject.GetComponent<Key>().keyNumber] = true;
+            Debug.Log("get key" + other.gameObject.GetComponent<Key>().keyNumber);
+            Destroy(other.gameObject);
+            UpdateUI.Invoke();
+        }
 
-        //if (other.gameObject.GetComponent<Coin>() != null)
-        //{
-        //    coins += other.gameObject.GetComponent<Coin>().value;
-        //    UpdateUI.Invoke();
-        //}
+        if (other.gameObject.GetComponent<Coin>() != null)
+        {
+            coins += other.gameObject.GetComponent<Coin>().value;
+            Debug.Log("get key" + other.gameObject.GetComponent<Coin>().value);
+            Destroy(other.gameObject);
+            UpdateUI.Invoke();
+        }
     }
 }
