@@ -14,13 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 0.2
   FOV: 60
-  speed: 0.8
-  sprintSpeed: 1.2
-  jumpHeight: 0.24
+  speed: 2.5
+  sprintSpeed: 4.5
+  jumpHeight: 1
   groundedOffSet: -0.028
   groundedRadius: 0.1
-  radius: 0.1
-  height: 0.4
-  slopeLimit: 15
+  slopeLimit: 30
   stepOffset: 0.05
-  center: {x: 0, y: 0.2, z: 0}
