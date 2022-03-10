@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6189673297078955616}
   - component: {fileID: 6189673297078955615}
   m_Layer: 0
-  m_Name: Acid Bottle 1
+  m_Name: Acid Bottle Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1297566319699972983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4723983, y: 0, z: 2.4775279}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 1241310347957581973}
   m_Father: {fileID: 0}

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009907804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55, y: -0.25, z: 1.1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4135013735270702856}
@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 284450234}
   - component: {fileID: 284450235}
   - component: {fileID: 284450236}
+  - component: {fileID: 1272285320}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -284,6 +285,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   drop:
+    m_PersistentCalls:
+      m_Calls: []
+  interact:
     m_PersistentCalls:
       m_Calls: []
   analogMovement: 0
@@ -400,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSpeed: 5
-  maximumAllowedScale: 10
+  maximumAllowedScale: 4
   currentScale: 0
   nomimalSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
   targetSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
@@ -463,3 +467,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1272285320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54d813d408be66469361f9e7e28d4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAnchor: {fileID: 1009907805}
+  itemTransformSpeed: 5
+  grabRange: 10
+  currentItem: {fileID: 0}
