@@ -6,6 +6,7 @@ public class AcidScript : MonoBehaviour, IUsable
 {
     public float lauchForce;
     private Rigidbody acidRb;
+    private bool armed;
     private void Awake()
     {
         acidRb = GetComponent<Rigidbody>();
@@ -17,5 +18,19 @@ public class AcidScript : MonoBehaviour, IUsable
         _owner.Drop();
         acidRb.AddForce(facing * lauchForce,ForceMode.Impulse);
         acidRb.AddTorque(Vector3.right * lauchForce, ForceMode.Impulse);
+        armed = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (armed)
+        {
+            Lock _lock = collision.gameObject.GetComponent<Lock>();
+            if (_lock != null)
+            {
+                _lock.locked = false;
+            }
+            Destroy(gameObject);
+        }
     }
 }
