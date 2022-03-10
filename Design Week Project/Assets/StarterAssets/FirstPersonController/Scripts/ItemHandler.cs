@@ -50,9 +50,9 @@ public class ItemHandler : MonoBehaviour
                 currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, itemAnchor.position, itemTransformSpeed * Time.deltaTime);
             }
             Debug.Log(transform.localScale * (currentItem.transform.localScale.x));
-            if (currentItem.transform.localScale != itemNominalScale*_sizeControl.currentScale)
+            if (currentItem.transform.localScale != itemNominalScale*_sizeControl.currentScale/_sizeControl.nomimalSize.scale)
             {
-                currentItem.transform.localScale = Vector3.Lerp(currentItem.transform.localScale, itemNominalScale * _sizeControl.currentScale, itemTransformSpeed * Time.deltaTime);
+                currentItem.transform.localScale = Vector3.Lerp(currentItem.transform.localScale, itemNominalScale * _sizeControl.currentScale / _sizeControl.nomimalSize.scale, itemTransformSpeed * Time.deltaTime);
             }
         }
     }

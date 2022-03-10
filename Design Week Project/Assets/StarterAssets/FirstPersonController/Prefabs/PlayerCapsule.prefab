@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009907804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 1.1}
+  m_LocalPosition: {x: 0.55, y: -0.25, z: 1.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4135013735270702856}
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSpeed: 5
-  maximumAllowedScale: 3
+  maximumAllowedScale: 10
   currentScale: 0
   nomimalSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
   targetSize: {fileID: 11400000, guid: 2c88a550361e2944a9986024c6a3e822, type: 2}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1009907805}
   itemTransformSpeed: 10
-  grabRange: 5
+  grabRange: 50
   currentItem: {fileID: 0}
 --- !u!114 &284450236
 MonoBehaviour:
