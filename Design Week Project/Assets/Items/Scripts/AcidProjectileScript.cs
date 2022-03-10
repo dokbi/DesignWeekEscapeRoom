@@ -10,9 +10,15 @@ public class AcidProjectileScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward, ForceMode.Impulse);
+        rb.AddForce(transform.forward * throwPower, ForceMode.Impulse);
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
