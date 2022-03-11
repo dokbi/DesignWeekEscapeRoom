@@ -9478,76 +9478,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f56d2e99ee242144b207cd87772e44c, type: 3}
---- !u!1 &908974969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 409089899305351309, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
-  m_PrefabInstance: {fileID: 1949475458}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &908974970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908974969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719fd078ec02dd24db2c8d6840128479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victory:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 739758389}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: DisableCoinUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 739758389}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: DisableKeyUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 739758389}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: EnableWinScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!64 &908974972
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908974969}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: b6641c640f1a5e945af2a833853f8c53, type: 3}
 --- !u!4 &910432568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7149b2741cc22e0468ed3ac75f35c5ca, type: 3}
@@ -19482,6 +19412,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 739758389}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 739758389}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 739758389}
     - target: {fileID: 409089899305351309, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
       propertyPath: m_Name
       value: Cauldron
@@ -19489,18 +19431,6 @@ PrefabInstance:
     - target: {fileID: 1073740948027728439, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073740948027728439, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073740948027728439, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073740948027728439, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1073740948027728439, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
       propertyPath: m_LocalPosition.x
