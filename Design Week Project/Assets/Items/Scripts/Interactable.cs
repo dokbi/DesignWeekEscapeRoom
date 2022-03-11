@@ -5,14 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Interactable : MonoBehaviour
 {
-    public delegate void InteractionFunction();
-    private void OnTriggerEnter(Collider other)
-    {
-        other.GetComponent<InteractionHandler>().currentInteractable = this;
-    }
+    public GameObject interacter;
+    public InteractionHandler handler;
 
-    private void OnTriggerExit(Collider other)
-    {
-        other.GetComponent<InteractionHandler>().currentInteractable = null;
+    public virtual void Interact()
+    { 
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerLevelData : MonoBehaviour
 {
-    private bool[] keys;
+    public bool[] keys;
     private int coins;
     public UnityEvent<int> UpdateKey;
     public UnityEvent<int> UpdateCoin;
