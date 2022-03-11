@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1521,6 +1521,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67759c4387407946920f5c0dc63db64, type: 3}
+--- !u!114 &104587483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957421477607592611, guid: a67759c4387407946920f5c0dc63db64, type: 3}
+  m_PrefabInstance: {fileID: 104587482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdd4bf5177969248b14f3f7e20cdc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &106261038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8f56d2e99ee242144b207cd87772e44c, type: 3}
@@ -21764,6 +21775,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 104587483}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 104587483}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 104587483}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableKeyUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisableCoinUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 908974970, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
+      propertyPath: victory.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnableWinScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 409089899305351309, guid: 06b522e7362e92e4db89c18041619d93, type: 3}
       propertyPath: m_Name
       value: Cauldron
