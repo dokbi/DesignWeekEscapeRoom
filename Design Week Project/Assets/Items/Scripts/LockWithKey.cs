@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lock : Interactable
+public class LockWithKey : Interactable
 {
     public bool locked = true;
     public int keyNumber = 0;
@@ -22,14 +22,16 @@ public class Lock : Interactable
             lockShackle.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    public override void Interact()
     {
-        AcidScript _acid = collision.gameObject.GetComponent<AcidScript>();
-        if (_acid != null)
+        if (interacter.GetComponent<PlayerLevelData>().keys[keyNumber])
         {
             locked = false;
         }
-        GetComponent<BoxCollider>().enabled = false;
+        else
+        {
+            Debug.Log("you don't have the key");
+        }
     }
-
 }
