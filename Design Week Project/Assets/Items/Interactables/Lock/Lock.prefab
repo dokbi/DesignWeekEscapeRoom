@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1985956296506934118}
   - component: {fileID: 3869647622077034150}
   - component: {fileID: 3564618891692120014}
+  - component: {fileID: 1055926916}
+  - component: {fileID: 1055926915}
   m_Layer: 0
   m_Name: Lock_low_Cube.001
   m_TagString: Untagged
@@ -81,6 +83,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1055926916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633411926098280937}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1055926915
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633411926098280937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6931985945914121837, guid: 1d2f2813464f84c4ebb119c24c671d1c, type: 3}
 --- !u!1 &4428131525483037143
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +124,8 @@ GameObject:
   - component: {fileID: 5662677225353891419}
   - component: {fileID: 8552709655976234929}
   - component: {fileID: 1982799446738113160}
+  - component: {fileID: 1055926918}
+  - component: {fileID: 1055926917}
   m_Layer: 0
   m_Name: Lock_low.001_Cube.003
   m_TagString: Untagged
@@ -162,6 +196,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1055926918
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428131525483037143}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1055926917
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428131525483037143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7849863849391237068, guid: 2022204f1a5bf8248ab0a6531560631d, type: 3}
 --- !u!1 &5177867453292952364
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +235,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 257082191099330382}
+  - component: {fileID: 1055926920}
+  - component: {fileID: 1055926919}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -187,13 +253,39 @@ Transform:
   m_GameObject: {fileID: 5177867453292952364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 5768487385011239846}
   - {fileID: 8561103213357498114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1055926920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177867453292952364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8912113, y: 2.743676, z: 0.88375384}
+  m_Center: {x: -0.038748384, y: 0.3681095, z: -0.058123134}
+--- !u!114 &1055926919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177867453292952364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a686bca2ab097e044b70e3ae990f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 1
 --- !u!1 &6576970807251755292
 GameObject:
   m_ObjectHideFlags: 0
