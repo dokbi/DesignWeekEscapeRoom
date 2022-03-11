@@ -6,16 +6,28 @@ public class Lock : MonoBehaviour
 {
     public bool locked = true;
 
-    private Renderer lockRenderer;
+    private GameObject lockBody;
+    private GameObject lockShackle;
     private void Awake()
     {
-        lockRenderer = transform.GetChild(0).GetComponent<Renderer>();
+        lockBody = transform.GetChild(0).GetChild(0).gameObject;
+        lockShackle = transform.GetChild(1).GetChild(0).gameObject;
     }
     private void Update()
     {
         if (!locked)
         {
-            lockRenderer.material.color = Color.Lerp(lockRenderer.material.color, Color.clear, 1.5f * Time.deltaTime);
+            lockBody.GetComponent<Rigidbody>().isKinematic = false;
+            lockShackle.GetComponent<Rigidbody>().isKinematic = false;
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        AcidScript _acid = collision.gameObject.GetComponent<AcidScript>();
+        if (_acid != null)
+        {
+            locked = false;
+        }
+        GetComponent<BoxCollider>().enabled = false;
     }
 }

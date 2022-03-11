@@ -11,7 +11,7 @@ public class PlayerLevelData : MonoBehaviour
     public UnityEvent<int> UpdateCoin;
     private void Awake()
     {
-        keys = new bool[2];
+        keys = new bool[3];
     }
 
     private void OnTriggerEnter(Collider other)
