@@ -2176,9 +2176,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 742717591}
     m_Modifications:
+    - target: {fileID: 1676775282, guid: a67759c4387407946920f5c0dc63db64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1878490798310471865, guid: a67759c4387407946920f5c0dc63db64, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878490798310471867, guid: a67759c4387407946920f5c0dc63db64, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878490798310471867, guid: a67759c4387407946920f5c0dc63db64, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1878490798310471869, guid: a67759c4387407946920f5c0dc63db64, type: 3}
       propertyPath: m_Pivot.x
@@ -34688,6 +34700,10 @@ PrefabInstance:
       propertyPath: _cameraControl
       value: 
       objectReference: {fileID: 1856903290}
+    - target: {fileID: 284450235, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: grabRange
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 284450236, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: UpdateKey.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34696,6 +34712,10 @@ PrefabInstance:
       propertyPath: UpdateCoin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 440021452}
+    - target: {fileID: 1272285320, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: grabRange
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -34744,7 +34764,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1272285320, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1001 &2144653370
 PrefabInstance:
